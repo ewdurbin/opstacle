@@ -1,4 +1,3 @@
-
 opstacle
 ========
 
@@ -20,13 +19,13 @@ Configuration
 
 opstacle is configured only by environment variables, and our contestants are:
 
-## Pretty things
+### Pretty things
 
 - `OPSTACLE_FROM_ADDRESS`
   - Most messages will be simply relayed without modification, but we need our own name when we send rolled up emails
   - Sample Value: "Opstacle <opstacle@opstacle.io>"
 
-## Threshold configuration
+### Threshold configuration
 
 - `OPSTACLE_INTERVAL`
   - Interval to keep counters when messages have been sent, in seconds
@@ -36,7 +35,7 @@ opstacle is configured only by environment variables, and our contestants are:
   - Sample Value: 5
 
 
-## "Fake" SMTP server (where opstacle will listen) 
+### "Fake" SMTP server (where opstacle will listen) 
 
 - `OPSTACLE_LISTEN_HOST`
   - Sample Value: "127.0.0.1"
@@ -44,7 +43,7 @@ opstacle is configured only by environment variables, and our contestants are:
   - Sample Value: 9025
 
 
-## "Real" SMTP server
+### "Real" SMTP server
 
 - `OPSTACLE_SMTP_USER`
   - Sample Value: "postmaster@smtp.opstacle.org"
