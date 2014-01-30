@@ -27,7 +27,7 @@ setup(
     version=version,
     license='MIT',
     description="A dangerous and probably broken SMTP proxy that attempts to keep you sane",
-    long_description=read('README.md'),
+    long_description=read('README.rst'),
     classifiers=[
         'Environment :: No Input/Output (Daemon)',
         'License :: OSI Approved :: MIT License',
