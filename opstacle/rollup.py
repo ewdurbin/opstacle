@@ -44,10 +44,11 @@ class RecipientStore(object):
 
 class RollUp(object):
 
-    def __init__(self, messages=5, interval=30):
+    def __init__(self, messages=5, interval=30, auto_purge=100):
         self.recipients = defaultdict(RecipientStore)
         self.messages = messages
         self.interval = interval
+        self.auto_purge = auto_purge
         self.smtp = SMTP(config.SMTP_HOST, int(config.SMTP_PORT))
         self.smtp.login(config.SMTP_USER, config.SMTP_PASS)
 
@@ -58,12 +59,11 @@ class RollUp(object):
         for poor_bastard in self.recipients:
             recip = self.recipients[poor_bastard]
 
-            if len(recip.counter) > self.messages:
+            if len(recip.counter) > self.messages and len(recip.messages) < self.auto_purge:
                 if not force:
                     return
 
             if len(recip) > 0:
-                print recip.messages
                 log.info("purging to %s" % (poor_bastard))
                 self.send(config.FROM_ADDRESS, poor_bastard, recip.backlog(poor_bastard))
                 recip.clear_messages()
@@ -75,8 +75,12 @@ class RollUp(object):
             recip.incr_counter()
 
             if len(recip.counter) > self.messages:
-                log.info('throttling to %s' % (poor_bastard))
                 recip.add_message(body)
+                if len(recip.counter) < self.auto_purge:
+                    log.info('throttling to %s' % (poor_bastard))
+                else:
+                    log.info('auto purging to %s' % (poor_bastard))
+                    self.purge()
                 return
 
             log.info('sending to %s' % (poor_bastard))
@@ -101,7 +105,8 @@ class RollUpInbox(Inbox):
 
     def __init__(self):
         super(RollUpInbox, self).__init__()
-        self.rollup = RollUp()
+        self.rollup = RollUp(messages=config.MESSAGE_CAP, interval=config.MESSAGE_INTERVAL,
+                             auto_purge=config.AUTO_PURGE)
         self.collator = self.rollup.rollup_handler
 
     def serve(self, port=None, address=None):

@@ -33,6 +33,9 @@ opstacle is configured only by environment variables, and our contestants are:
 - `OPSTACLE_MESSAGE_CAP`
   * Max number of messages to send in a given `OPSTACLE_INTERVAL`
   * Sample Value: 5
+- `OPSTACLE_AUTO_PURGE`
+  * Max numbers to ever hold for a given recipient, dump and recollect
+  * Sample Value: 100
 
 
 ### "Fake" SMTP server (where opstacle will listen) 
