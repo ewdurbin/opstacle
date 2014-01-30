@@ -22,37 +22,37 @@ opstacle is configured only by environment variables, and our contestants are:
 ### Pretty things
 
 - `OPSTACLE_FROM_ADDRESS`
-  - Most messages will be simply relayed without modification, but we need our own name when we send rolled up emails
-  - Sample Value: "Opstacle <opstacle@opstacle.io>"
+  * Most messages will be simply relayed without modification, but we need our own name when we send rolled up emails
+  * Sample Value: "Opstacle <opstacle@opstacle.io>"
 
 ### Threshold configuration
 
 - `OPSTACLE_INTERVAL`
-  - Interval to keep counters when messages have been sent, in seconds
-  - Sample Value: 30
+  * Interval to keep counters when messages have been sent, in seconds
+  * Sample Value: 30
 - `OPSTACLE_MESSAGE_CAP`
-  - Max number of messages to send in a given `OPSTACLE_INTERVAL`
-  - Sample Value: 5
+  * Max number of messages to send in a given `OPSTACLE_INTERVAL`
+  * Sample Value: 5
 
 
 ### "Fake" SMTP server (where opstacle will listen) 
 
 - `OPSTACLE_LISTEN_HOST`
-  - Sample Value: "127.0.0.1"
+  * Sample Value: "127.0.0.1"
 - `OPSTACLE_LISTEN_PORT`
-  - Sample Value: 9025
+  * Sample Value: 9025
 
 
 ### "Real" SMTP server
 
 - `OPSTACLE_SMTP_USER`
-  - Sample Value: "postmaster@smtp.opstacle.org"
+  * Sample Value: "postmaster@smtp.opstacle.org"
 - `OPSTACLE_SMTP_PASS`
-  - Sample Value: "stopTheInsanity"
+  * Sample Value: "stopTheInsanity"
 - `OPSTACLE_SMTP_HOST`
-  - Sample Value: "smtp.opstacle.org"
+  * Sample Value: "smtp.opstacle.org"
 - `OPSTACLE_SMTP_PORT`
-  - Sample Value: "587"
+  * Sample Value: "587"
 
 Running
 -------
