@@ -1,0 +1,8 @@
+
+from opstacle.rollup import RollUpInbox
+from opstacle.config import Config
+
+config = Config()
+inbox = RollUpInbox()
+
+inbox.serve(port=config.LISTEN_PORT, address=config.LISTEN_HOST)

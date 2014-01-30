@@ -1,0 +1,8 @@
+
+/.env
+/env
+
+*.pyc
+
+/opstacle.egg-info
+/dist
