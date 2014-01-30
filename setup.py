@@ -43,6 +43,6 @@ setup(
     author_email='ewdurbin@gmail.com',
     url='https://github.com/ewdurbin/opstacle/',
     packages=['opstacle'],
-    scripts=['bin/opstacle']
+    scripts=['bin/opstacle'],
     install_requires=requirements
 )
